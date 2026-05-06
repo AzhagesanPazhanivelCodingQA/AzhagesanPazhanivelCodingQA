@@ -8,7 +8,557 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts: modern & clean -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* ========== RESET & VARIABLES ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-white: #ffffff;
+      --bg-light: #f8fafc;
+      --primary-blue: #0f67b3;
+      --primary-dark: #0a4c7e;
+      --accent-blue-light: #eef6ff;
+      --text-dark: #1e293b;
+      --text-muted: #475569;
+      --gray-soft: #e2e8f0;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+      --transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-white: #0f172a;
+      --bg-light: #111827;
+      --primary-blue: #3b82f6;
+      --primary-dark: #2563eb;
+      --accent-blue-light: #1e293b;
+      --text-dark: #f1f5f9;
+      --text-muted: #cbd5e1;
+      --gray-soft: #334155;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.2s;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* dark mode toggle */
+    .dark-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 1000;
+      background: var(--primary-blue);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+    }
+
+    .dark-toggle:hover {
+      transform: scale(1.05);
+      background: var(--primary-dark);
+    }
+
+    /* hero section */
+    .hero {
+      background: linear-gradient(135deg, var(--bg-white) 0%, var(--accent-blue-light) 100%);
+      padding: 80px 0 60px;
+      position: relative;
+      border-bottom: 1px solid var(--gray-soft);
+    }
+
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: var(--primary-blue);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin: 0.5rem 0 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .hero-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-summary {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--primary-blue);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -10px rgba(15, 103, 179, 0.4);
+    }
+
+    .hero-icon {
+      font-size: 7rem;
+      color: var(--primary-blue);
+      opacity: 0.5;
+    }
+
+    .wave-separator {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: var(--bg-light);
+      clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    /* sections */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .underline {
+      width: 70px;
+      height: 4px;
+      background: var(--primary-blue);
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    .underline.short {
+      width: 50px;
+      margin: 10px 0 0 0;
+    }
+
+    .left-align {
+      text-align: left;
+    }
+
+    /* about grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: var(--bg-white);
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-blue);
+    }
+
+    .about-quote {
+      background: var(--bg-white);
+      padding: 2rem;
+      border-radius: 24px;
+      text-align: center;
+      font-style: italic;
+      box-shadow: var(--shadow-md);
+      border-left: 6px solid var(--primary-blue);
+    }
+
+    .about-quote i {
+      font-size: 2rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    /* skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .skill-card {
+      background: var(--bg-white);
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-card i {
+      font-size: 1.8rem;
+      color: var(--primary-blue);
+    }
+
+    .skill-card span {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .skill-level {
+      background: var(--gray-soft);
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .skill-bar {
+      background: var(--primary-blue);
+      height: 100%;
+      border-radius: 10px;
+      width: 0%;
+      transition: width 1s ease;
+    }
+
+    /* timeline experience */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-icon {
+      background: var(--primary-blue);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 5px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-content {
+      background: var(--bg-white);
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px;
+      width: 100%;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+
+    .timeline-content:hover {
+      transform: translateX(6px);
+    }
+
+    .timeline-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .company, .date {
+      display: inline-block;
+      margin-right: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .company i, .date i {
+      margin-right: 6px;
+    }
+
+    /* double grid for edu & cert */
+    .double-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .card-block {
+      background: var(--bg-white);
+      padding: 2rem;
+      border-radius: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .edu-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-badge {
+      display: inline-block;
+      background: var(--accent-blue-light);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      margin-top: 0.8rem;
+      font-weight: 500;
+    }
+
+    .cert-badge {
+      background: var(--primary-blue);
+      color: white;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .pulse-light {
+      animation: softPulse 2s infinite;
+    }
+
+    .progress-exam {
+      margin-top: 1.2rem;
+    }
+
+    .progress-bar-bg {
+      background: var(--gray-soft);
+      height: 8px;
+      border-radius: 8px;
+      margin-top: 6px;
+    }
+
+    .progress-fill {
+      background: var(--primary-blue);
+      height: 100%;
+      border-radius: 8px;
+      width: 0%;
+      transition: width 1s;
+    }
+
+    /* contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 2rem;
+      background: var(--bg-white);
+      padding: 2rem;
+      border-radius: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-item i {
+      font-size: 1.6rem;
+      background: var(--accent-blue-light);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      color: var(--primary-blue);
+    }
+
+    .contact-item h4 {
+      font-weight: 600;
+    }
+
+    .contact-social h4 {
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .social-links a {
+      background: var(--gray-soft);
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      color: var(--primary-blue);
+      font-size: 1.3rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    .contact-note {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gray-soft);
+      font-size: 0.9rem;
+    }
+
+    /* footer */
+    .footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 32px 0;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .footer-container p {
+      opacity: 0.9;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-summary {
+        max-width: 100%;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .double-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline-item {
+        flex-direction: column;
+      }
+      .timeline-icon {
+        margin-left: 0;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    /* animation scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes softPulse {
+      0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.4);}
+      70% { box-shadow: 0 0 0 8px rgba(59,130,246,0);}
+      100% { box-shadow: 0 0 0 0 rgba(59,130,246,0);}
+    }
+  </style>
 </head>
 <body>
 
@@ -25,9 +575,9 @@
         <h1>Azhagesan P.M</h1>
         <p class="hero-title">Senior Medical Coder | HCC | QA</p>
         <p class="hero-summary">4.3+ years experience in HCC coding and auditing</p>
-        <a href="#" class="btn btn-primary" id="downloadResumeBtn">
+        <button class="btn-primary" id="downloadResumeBtn">
           <i class="fas fa-download"></i> Download Resume
-        </a>
+        </button>
       </div>
       <div class="hero-icon">
         <i class="fas fa-stethoscope"></i>
@@ -199,6 +749,144 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // ========== DARK MODE TOGGLE ==========
+    const darkToggle = document.getElementById('darkModeToggle');
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      document.body.removeAttribute('data-theme');
+      darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+
+    darkToggle.addEventListener('click', () => {
+      if (document.body.getAttribute('data-theme') === 'dark') {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+    });
+
+    // ========== DOWNLOAD RESUME BUTTON ==========
+    const downloadBtn = document.getElementById('downloadResumeBtn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const resumeContent = `Azhagesan P.M - Senior Medical Coder Resume
+==========================================
+Experience: 4.3+ years in HCC Coding & QA
+Certifications: CCS (Appearing May 11)
+Skills: HCC Coding, ICD-10-CM, Risk Adjustment, QA/Auditing, Clinical Documentation Review, Medical Terminology
+Contact: azhagesan.coder@medhealth.com | +91 98765 43210
+Location: Tamil Nadu, India
+
+Professional Summary:
+Medical coding professional with HCC and QA experience, dedicated to accuracy in risk adjustment and clinical documentation. Currently preparing for CCS certification.
+
+Work Experience:
+• Village INFO Tech - Senior Medical Coder/QA (Dec 2023 – Present)
+• CorroHealth - Medical Coder (2022 – 2023)
+• Clarus RCM - Medical Coder (2020 – 2022)
+• Vee Technologies - Medical Coder (2019 – 2020)
+
+Education: B.Sc Zoology`;
+        
+        const blob = new Blob([resumeContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Azhagesan_PM_Resume.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        const toastMsg = document.createElement('div');
+        toastMsg.innerText = '📄 Resume download started';
+        toastMsg.style.position = 'fixed';
+        toastMsg.style.bottom = '90px';
+        toastMsg.style.right = '30px';
+        toastMsg.style.backgroundColor = '#0f67b3';
+        toastMsg.style.color = 'white';
+        toastMsg.style.padding = '12px 24px';
+        toastMsg.style.borderRadius = '40px';
+        toastMsg.style.zIndex = '9999';
+        toastMsg.style.fontWeight = '500';
+        toastMsg.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+        document.body.appendChild(toastMsg);
+        setTimeout(() => toastMsg.remove(), 2500);
+      });
+    }
+
+    // ========== SCROLL REVEAL ANIMATION ==========
+    const revealElements = document.querySelectorAll('.skill-card, .timeline-content, .about-grid > *, .contact-grid, .card-block');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    
+    revealElements.forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+    
+    // ========== SKILL BAR ANIMATION ==========
+    const skillSection = document.querySelector('.skills');
+    if (skillSection) {
+      const skillBars = document.querySelectorAll('.skill-bar');
+      const animateBars = () => {
+        skillBars.forEach(bar => {
+          const width = bar.style.width;
+          if (width && !bar.dataset.animated) {
+            bar.style.width = width;
+            bar.dataset.animated = 'true';
+          }
+        });
+      };
+      const skillObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateBars();
+          skillObserver.disconnect();
+        }
+      }, { threshold: 0.3 });
+      skillObserver.observe(skillSection);
+    }
+    
+    // ========== PROGRESS FILL INIT ==========
+    const progressFill = document.querySelector('.progress-fill');
+    const readinessSpan = document.getElementById('readinessValue');
+    if (progressFill && readinessSpan) {
+      const targetWidth = readinessSpan.innerText + '%';
+      progressFill.style.width = targetWidth;
+    }
+    
+    // ========== HERO ICON PARALLAX ==========
+    const heroIcon = document.querySelector('.hero-icon');
+    if (heroIcon) {
+      document.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 768) {
+          const x = (e.clientX / window.innerWidth) * 10;
+          const y = (e.clientY / window.innerHeight) * 10;
+          heroIcon.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        }
+      });
+    }
+    
+    // ========== UPDATE FOOTER YEAR ==========
+    const footerYear = document.querySelector('.footer p');
+    if (footerYear && !footerYear.innerText.includes('2026')) {
+      footerYear.innerText = `© ${new Date().getFullYear()} Azhagesan P.M | Senior Medical Coder | HCC & QA Specialist`;
+    }
+  </script>
 </body>
 </html>
