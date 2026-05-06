@@ -2,15 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Azhagesan P.M | Senior Medical Coder</title>
-  <!-- Font Awesome 6 (free icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: modern & clean -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   
   <style>
-    /* ========== RESET & VARIABLES ========== */
     * {
       margin: 0;
       padding: 0;
@@ -19,32 +14,29 @@
 
     :root {
       --bg-white: #ffffff;
-      --bg-light: #f8fafc;
-      --primary-blue: #0f67b3;
-      --primary-dark: #0a4c7e;
-      --accent-blue-light: #eef6ff;
-      --text-dark: #1e293b;
-      --text-muted: #475569;
-      --gray-soft: #e2e8f0;
-      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-      --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+      --bg-light: #f0f9ff;
+      --primary-blue: #0891b2;
+      --primary-dark: #0e7490;
+      --accent-blue-light: #e0f2fe;
+      --text-dark: #0f172a;
+      --text-muted: #334155;
+      --gray-soft: #cbd5e1;
       --transition: all 0.3s ease;
     }
 
     [data-theme="dark"] {
       --bg-white: #0f172a;
-      --bg-light: #111827;
-      --primary-blue: #3b82f6;
-      --primary-dark: #2563eb;
+      --bg-light: #1e293b;
+      --primary-blue: #38bdf8;
+      --primary-dark: #7dd3fc;
       --accent-blue-light: #1e293b;
       --text-dark: #f1f5f9;
-      --text-muted: #cbd5e1;
+      --text-muted: #94a3b8;
       --gray-soft: #334155;
-      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       background: var(--bg-light);
       color: var(--text-dark);
       line-height: 1.5;
@@ -58,7 +50,7 @@
       padding: 0 24px;
     }
 
-    /* dark mode toggle */
+    /* Dark mode toggle */
     .dark-toggle {
       position: fixed;
       bottom: 28px;
@@ -81,7 +73,7 @@
       background: var(--primary-dark);
     }
 
-    /* hero section */
+    /* Hero section */
     .hero {
       background: linear-gradient(135deg, var(--bg-white) 0%, var(--accent-blue-light) 100%);
       padding: 80px 0 60px;
@@ -110,28 +102,26 @@
       font-weight: 600;
       display: inline-block;
       margin-bottom: 1.2rem;
-      letter-spacing: 0.3px;
     }
 
     .hero h1 {
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 700;
-      margin: 0.5rem 0 0.5rem;
+      margin: 0.5rem 0;
       color: var(--text-dark);
     }
 
     .hero-title {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--primary-blue);
       margin-bottom: 0.75rem;
     }
 
     .hero-summary {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-muted);
       margin-bottom: 2rem;
-      max-width: 90%;
     }
 
     .btn-primary {
@@ -145,36 +135,25 @@
       text-decoration: none;
       font-weight: 600;
       transition: var(--transition);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       cursor: pointer;
       border: none;
+      font-size: 1rem;
     }
 
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 12px 20px -10px rgba(15, 103, 179, 0.4);
     }
 
     .hero-icon {
-      font-size: 7rem;
+      font-size: 6rem;
       color: var(--primary-blue);
       opacity: 0.5;
     }
 
-    .wave-separator {
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 30px;
-      background: var(--bg-light);
-      clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
-    }
-
-    /* sections */
+    /* Sections */
     .section {
-      padding: 80px 0;
+      padding: 60px 0;
     }
 
     .section-header {
@@ -185,7 +164,6 @@
     .section-header h2 {
       font-size: 2rem;
       font-weight: 700;
-      color: var(--text-dark);
     }
 
     .underline {
@@ -196,101 +174,83 @@
       border-radius: 4px;
     }
 
-    .underline.short {
-      width: 50px;
-      margin: 10px 0 0 0;
-    }
-
-    .left-align {
-      text-align: left;
-    }
-
-    /* about grid */
+    /* About */
     .about-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: center;
     }
 
     .about-text p {
       margin-bottom: 1rem;
       color: var(--text-muted);
-      font-size: 1.05rem;
     }
 
     .about-stats {
       display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
+      gap: 1rem;
+      margin-top: 1.5rem;
       flex-wrap: wrap;
     }
 
     .stat {
       background: var(--bg-white);
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: 40px;
       font-weight: 500;
-      font-size: 0.9rem;
-      box-shadow: var(--shadow-sm);
+      font-size: 0.85rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       color: var(--primary-blue);
     }
 
     .about-quote {
       background: var(--bg-white);
-      padding: 2rem;
-      border-radius: 24px;
+      padding: 1.5rem;
+      border-radius: 20px;
       text-align: center;
       font-style: italic;
-      box-shadow: var(--shadow-md);
-      border-left: 6px solid var(--primary-blue);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--primary-blue);
     }
 
-    .about-quote i {
-      font-size: 2rem;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
+    .about-quote p {
+      margin-top: 0.5rem;
     }
 
-    /* skills grid */
+    /* Skills */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
 
     .skill-card {
       background: var(--bg-white);
-      padding: 1.2rem 1.5rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow-sm);
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       transition: var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
 
     .skill-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.1);
-    }
-
-    .skill-card i {
-      font-size: 1.8rem;
-      color: var(--primary-blue);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .skill-card span {
       font-weight: 600;
-      font-size: 1.1rem;
     }
 
     .skill-level {
       background: var(--gray-soft);
-      height: 8px;
+      height: 6px;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -303,7 +263,7 @@
       transition: width 1s ease;
     }
 
-    /* timeline experience */
+    /* Timeline */
     .timeline {
       position: relative;
       max-width: 800px;
@@ -312,106 +272,90 @@
 
     .timeline-item {
       display: flex;
-      gap: 1.8rem;
-      margin-bottom: 2rem;
-      position: relative;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .timeline-icon {
       background: var(--primary-blue);
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       flex-shrink: 0;
-      margin-top: 5px;
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
     }
 
     .timeline-content {
       background: var(--bg-white);
-      padding: 1.2rem 1.5rem;
-      border-radius: 20px;
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
       width: 100%;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s;
-    }
-
-    .timeline-content:hover {
-      transform: translateX(6px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     .timeline-content h3 {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       margin-bottom: 6px;
     }
 
     .company, .date {
       display: inline-block;
-      margin-right: 20px;
-      font-size: 0.85rem;
+      margin-right: 15px;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .company i, .date i {
-      margin-right: 6px;
-    }
-
-    /* double grid for edu & cert */
+    /* Double grid */
     .double-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .card-block {
       background: var(--bg-white);
-      padding: 2rem;
-      border-radius: 28px;
-      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     .edu-item h3 {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       margin-bottom: 0.5rem;
     }
 
     .edu-badge {
       display: inline-block;
       background: var(--accent-blue-light);
-      padding: 6px 16px;
+      padding: 4px 12px;
       border-radius: 30px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       margin-top: 0.8rem;
-      font-weight: 500;
     }
 
     .cert-badge {
       background: var(--primary-blue);
       color: white;
       display: inline-block;
-      padding: 8px 20px;
+      padding: 6px 16px;
       border-radius: 30px;
       font-weight: 700;
       margin-bottom: 1rem;
-    }
-
-    .pulse-light {
-      animation: softPulse 2s infinite;
+      font-size: 0.9rem;
     }
 
     .progress-exam {
-      margin-top: 1.2rem;
+      margin-top: 1rem;
     }
 
     .progress-bar-bg {
       background: var(--gray-soft);
-      height: 8px;
+      height: 6px;
       border-radius: 8px;
       margin-top: 6px;
     }
@@ -420,32 +364,31 @@
       background: var(--primary-blue);
       height: 100%;
       border-radius: 8px;
-      width: 0%;
-      transition: width 1s;
+      width: 85%;
     }
 
-    /* contact */
+    /* Contact */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 0.8fr;
-      gap: 2rem;
+      gap: 1.5rem;
       background: var(--bg-white);
-      padding: 2rem;
-      border-radius: 32px;
+      padding: 1.5rem;
+      border-radius: 24px;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .contact-item i {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       background: var(--accent-blue-light);
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -455,28 +398,30 @@
 
     .contact-item h4 {
       font-weight: 600;
+      font-size: 0.9rem;
     }
 
-    .contact-social h4 {
-      margin-bottom: 1rem;
+    .contact-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     .social-links {
       display: flex;
-      gap: 1rem;
+      gap: 0.8rem;
       margin: 1rem 0;
     }
 
     .social-links a {
       background: var(--gray-soft);
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 30px;
       color: var(--primary-blue);
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       transition: var(--transition);
       text-decoration: none;
     }
@@ -484,17 +429,16 @@
     .social-links a:hover {
       background: var(--primary-blue);
       color: white;
-      transform: translateY(-4px);
     }
 
     .contact-note {
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       padding-top: 1rem;
       border-top: 1px solid var(--gray-soft);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
-    /* footer */
+    /* Footer */
     .footer {
       background: var(--primary-dark);
       color: white;
@@ -503,23 +447,17 @@
       margin-top: 20px;
     }
 
-    .footer-container p {
-      opacity: 0.9;
-    }
-
     .footer-tagline {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       margin-top: 6px;
+      opacity: 0.8;
     }
 
-    /* responsive */
+    /* Responsive */
     @media (max-width: 768px) {
       .hero-container {
         flex-direction: column;
         text-align: center;
-      }
-      .hero-summary {
-        max-width: 100%;
       }
       .about-grid {
         grid-template-columns: 1fr;
@@ -533,15 +471,12 @@
       .timeline-item {
         flex-direction: column;
       }
-      .timeline-icon {
-        margin-left: 0;
-      }
       .hero h1 {
-        font-size: 2.4rem;
+        font-size: 2rem;
       }
     }
 
-    /* animation scroll reveal */
+    /* Reveal animation */
     .reveal {
       opacity: 0;
       transform: translateY(20px);
@@ -552,22 +487,12 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    @keyframes softPulse {
-      0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.4);}
-      70% { box-shadow: 0 0 0 8px rgba(59,130,246,0);}
-      100% { box-shadow: 0 0 0 0 rgba(59,130,246,0);}
-    }
   </style>
 </head>
 <body>
 
-  <!-- Dark mode toggle button (floating) -->
-  <button class="dark-toggle" id="darkModeToggle" aria-label="Dark mode toggle">
-    <i class="fas fa-moon"></i>
-  </button>
+  <button class="dark-toggle" id="darkModeToggle">🌙</button>
 
-  <!-- Header / Hero Section -->
   <header class="hero" id="home">
     <div class="container hero-container">
       <div class="hero-content">
@@ -575,20 +500,13 @@
         <h1>Azhagesan P.M</h1>
         <p class="hero-title">Senior Medical Coder | HCC | QA</p>
         <p class="hero-summary">4.3+ years experience in HCC coding and auditing</p>
-        <button class="btn-primary" id="downloadResumeBtn">
-          <i class="fas fa-download"></i> Download Resume
-        </button>
+        <button class="btn-primary" id="downloadResumeBtn">📄 Download Resume</button>
       </div>
-      <div class="hero-icon">
-        <i class="fas fa-stethoscope"></i>
-      </div>
+      <div class="hero-icon">🏥</div>
     </div>
-    <div class="wave-separator"></div>
   </header>
 
-  <!-- Main Content -->
   <main>
-    <!-- About Me Section -->
     <section class="section about" id="about">
       <div class="container">
         <div class="section-header">
@@ -600,20 +518,18 @@
             <p>Medical coding professional with <strong>HCC and QA experience</strong>, dedicated to accuracy in risk adjustment and clinical documentation. Passionate about bridging clinical knowledge with precise ICD-10-CM coding.</p>
             <p>Currently preparing for <strong>CCS certification</strong> (May 11) to deepen expertise in inpatient and outpatient coding. Strong in <strong>ICD-10-CM</strong>, risk adjustment methodologies, and documentation review — ensuring compliance and optimal revenue cycle performance.</p>
             <div class="about-stats">
-              <div class="stat"><i class="fas fa-calendar-alt"></i> 4.3+ Years</div>
-              <div class="stat"><i class="fas fa-chart-line"></i> 99% Accuracy</div>
-              <div class="stat"><i class="fas fa-file-alt"></i> 5000+ Charts Audited</div>
+              <div class="stat">📅 4.3+ Years</div>
+              <div class="stat">📊 99% Accuracy</div>
+              <div class="stat">📋 5000+ Charts Audited</div>
             </div>
           </div>
           <div class="about-quote">
-            <i class="fas fa-quote-left"></i>
-            <p>Precision in coding drives better patient outcomes and healthcare integrity.</p>
+            <p>"Precision in coding drives better patient outcomes and healthcare integrity."</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="section skills" id="skills">
       <div class="container">
         <div class="section-header">
@@ -621,17 +537,16 @@
           <div class="underline"></div>
         </div>
         <div class="skills-grid">
-          <div class="skill-card"><i class="fas fa-code-branch"></i><span>HCC Coding</span><div class="skill-level"><div class="skill-bar" style="width: 95%"></div></div></div>
-          <div class="skill-card"><i class="fas fa-book"></i><span>ICD-10-CM</span><div class="skill-level"><div class="skill-bar" style="width: 95%"></div></div></div>
-          <div class="skill-card"><i class="fas fa-chart-pie"></i><span>Risk Adjustment</span><div class="skill-level"><div class="skill-bar" style="width: 90%"></div></div></div>
-          <div class="skill-card"><i class="fas fa-check-double"></i><span>QA / Auditing</span><div class="skill-level"><div class="skill-bar" style="width: 88%"></div></div></div>
-          <div class="skill-card"><i class="fas fa-notes-medical"></i><span>Clinical Documentation Review</span><div class="skill-level"><div class="skill-bar" style="width: 90%"></div></div></div>
-          <div class="skill-card"><i class="fas fa-language"></i><span>Medical Terminology</span><div class="skill-level"><div class="skill-bar" style="width: 92%"></div></div></div>
+          <div class="skill-card"><span>🏷️ HCC Coding</span><div class="skill-level"><div class="skill-bar" style="width: 95%"></div></div></div>
+          <div class="skill-card"><span>📖 ICD-10-CM</span><div class="skill-level"><div class="skill-bar" style="width: 95%"></div></div></div>
+          <div class="skill-card"><span>📊 Risk Adjustment</span><div class="skill-level"><div class="skill-bar" style="width: 90%"></div></div></div>
+          <div class="skill-card"><span>✅ QA / Auditing</span><div class="skill-level"><div class="skill-bar" style="width: 88%"></div></div></div>
+          <div class="skill-card"><span>📝 Clinical Documentation Review</span><div class="skill-level"><div class="skill-bar" style="width: 90%"></div></div></div>
+          <div class="skill-card"><span>🔤 Medical Terminology</span><div class="skill-level"><div class="skill-bar" style="width: 92%"></div></div></div>
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section class="section experience" id="experience">
       <div class="container">
         <div class="section-header">
@@ -640,54 +555,51 @@
         </div>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="timeline-icon">💼</div>
             <div class="timeline-content">
               <h3>Senior Medical Coder / QA</h3>
-              <span class="company"><i class="fas fa-building"></i> Village INFO Tech</span>
-              <span class="date"><i class="far fa-calendar-alt"></i> Dec 2023 – Present</span>
-              <p>Lead HCC coding quality audits, mentor junior coders, and ensure RADV readiness. Perform retrospective reviews and provide feedback to improve coding accuracy.</p>
+              <span class="company">Village INFO Tech</span>
+              <span class="date">Dec 2023 – Present</span>
+              <p>Lead HCC coding quality audits, mentor junior coders, and ensure RADV readiness.</p>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-icon"><i class="fas fa-code"></i></div>
+            <div class="timeline-icon">💻</div>
             <div class="timeline-content">
               <h3>Medical Coder</h3>
-              <span class="company"><i class="fas fa-building"></i> CorroHealth</span>
-              <span class="date"><i class="far fa-calendar-alt"></i> 2022 – 2023</span>
-              <p>Specialized in risk adjustment coding, ICD-10-CM mapping for Medicare Advantage plans, and maintained 98% coding accuracy.</p>
+              <span class="company">CorroHealth</span>
+              <span class="date">2022 – 2023</span>
+              <p>Specialized in risk adjustment coding, ICD-10-CM mapping for Medicare Advantage plans.</p>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-icon"><i class="fas fa-clinic-medical"></i></div>
+            <div class="timeline-icon">🏥</div>
             <div class="timeline-content">
               <h3>Medical Coder</h3>
-              <span class="company"><i class="fas fa-building"></i> Clarus RCM</span>
-              <span class="date"><i class="far fa-calendar-alt"></i> 2020 – 2022</span>
-              <p>Outpatient and HCC coding, EMR documentation abstraction, collaboration with providers to improve specificity.</p>
+              <span class="company">Clarus RCM</span>
+              <span class="date">2020 – 2022</span>
+              <p>Outpatient and HCC coding, EMR documentation abstraction.</p>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="timeline-icon">📈</div>
             <div class="timeline-content">
               <h3>Medical Coder</h3>
-              <span class="company"><i class="fas fa-building"></i> Vee Technologies</span>
-              <span class="date"><i class="far fa-calendar-alt"></i> 2019 – 2020</span>
-              <p>Entry-level coding, medical record review, and ICD-10 training. Built strong fundamentals in hierarchical condition categories.</p>
+              <span class="company">Vee Technologies</span>
+              <span class="date">2019 – 2020</span>
+              <p>Entry-level coding, medical record review, and ICD-10 training.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Education & Certification combined using grid -->
     <section class="section edu-cert" id="education">
       <div class="container">
         <div class="double-grid">
           <div class="card-block">
-            <div class="section-header left-align">
-              <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-              <div class="underline short"></div>
-            </div>
+            <h2>🎓 Education</h2>
+            <div class="underline short" style="margin: 10px 0 20px 0; width: 50px;"></div>
             <div class="edu-item">
               <h3>B.Sc Zoology</h3>
               <p>University of Madras, Tamil Nadu | Graduated with distinction</p>
@@ -695,16 +607,14 @@
             </div>
           </div>
           <div class="card-block">
-            <div class="section-header left-align">
-              <h2><i class="fas fa-certificate"></i> Certification</h2>
-              <div class="underline short"></div>
-            </div>
+            <h2>📜 Certification</h2>
+            <div class="underline short" style="margin: 10px 0 20px 0; width: 50px;"></div>
             <div class="cert-item">
-              <div class="cert-badge pulse-light"><i class="fas fa-star-of-life"></i> CCS</div>
-              <p><strong>Certified Coding Specialist (Appearing – May 11)</strong> — AHIMA accredited exam. Focus: inpatient/outpatient coding, clinical documentation improvement.</p>
+              <div class="cert-badge">⭐ CCS</div>
+              <p><strong>Certified Coding Specialist (Appearing – May 11)</strong> — AHIMA accredited exam.</p>
               <div class="progress-exam">
-                <span>Exam readiness: <span id="readinessValue">85</span>%</span>
-                <div class="progress-bar-bg"><div class="progress-fill" style="width: 85%"></div></div>
+                <span>Exam readiness: 85%</span>
+                <div class="progress-bar-bg"><div class="progress-fill"></div></div>
               </div>
             </div>
           </div>
@@ -712,7 +622,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="section contact" id="contact">
       <div class="container">
         <div class="section-header">
@@ -721,19 +630,19 @@
         </div>
         <div class="contact-grid">
           <div class="contact-info">
-            <div class="contact-item"><i class="fas fa-phone-alt"></i><div><h4>Phone</h4><p>+91 98765 43210</p></div></div>
-            <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>azhagesan.coder@medhealth.com</p></div></div>
-            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>Tamil Nadu, India</p></div></div>
+            <div class="contact-item"><span>📞</span><div><h4>Phone</h4><p>+91 98765 43210</p></div></div>
+            <div class="contact-item"><span>✉️</span><div><h4>Email</h4><p>azhagesan.coder@medhealth.com</p></div></div>
+            <div class="contact-item"><span>📍</span><div><h4>Location</h4><p>Tamil Nadu, India</p></div></div>
           </div>
           <div class="contact-social">
             <h4>Connect professionally</h4>
             <div class="social-links">
-              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#">in</a>
+              <a href="#">🐙</a>
+              <a href="#">🐦</a>
             </div>
             <div class="contact-note">
-              <i class="fas fa-id-card"></i> Open for remote HCC coding & QA auditing roles.
+              🆔 Open for remote HCC coding & QA auditing roles.
             </div>
           </div>
         </div>
@@ -741,152 +650,75 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-container">
       <p>© 2025 Azhagesan P.M | Senior Medical Coder | HCC & QA Specialist</p>
-      <p class="footer-tagline"><i class="fas fa-heartbeat"></i> Accuracy & Integrity in Healthcare Coding</p>
+      <p class="footer-tagline">❤️ Accuracy & Integrity in Healthcare Coding</p>
     </div>
   </footer>
 
   <script>
-    // ========== DARK MODE TOGGLE ==========
+    // Dark mode toggle
     const darkToggle = document.getElementById('darkModeToggle');
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
+    if (localStorage.getItem('theme') === 'dark') {
       document.body.setAttribute('data-theme', 'dark');
-      darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-      document.body.removeAttribute('data-theme');
-      darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      darkToggle.textContent = '☀️';
     }
 
     darkToggle.addEventListener('click', () => {
       if (document.body.getAttribute('data-theme') === 'dark') {
         document.body.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
-        darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        darkToggle.textContent = '🌙';
       } else {
         document.body.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        darkToggle.textContent = '☀️';
       }
     });
 
-    // ========== DOWNLOAD RESUME BUTTON ==========
-    const downloadBtn = document.getElementById('downloadResumeBtn');
-    if (downloadBtn) {
-      downloadBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const resumeContent = `Azhagesan P.M - Senior Medical Coder Resume
-==========================================
-Experience: 4.3+ years in HCC Coding & QA
-Certifications: CCS (Appearing May 11)
-Skills: HCC Coding, ICD-10-CM, Risk Adjustment, QA/Auditing, Clinical Documentation Review, Medical Terminology
-Contact: azhagesan.coder@medhealth.com | +91 98765 43210
-Location: Tamil Nadu, India
+    // Download resume
+    document.getElementById('downloadResumeBtn').addEventListener('click', () => {
+      const content = `Azhagesan P.M - Medical Coder Resume
+Experience: 4.3+ years HCC Coding & QA
+Certification: CCS (Appearing May 11)
+Skills: HCC, ICD-10-CM, Risk Adjustment, QA
+Contact: +91 98765 43210 | azhagesan.coder@medhealth.com`;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'Azhagesan_Resume.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      alert('Resume downloaded!');
+    });
 
-Professional Summary:
-Medical coding professional with HCC and QA experience, dedicated to accuracy in risk adjustment and clinical documentation. Currently preparing for CCS certification.
-
-Work Experience:
-• Village INFO Tech - Senior Medical Coder/QA (Dec 2023 – Present)
-• CorroHealth - Medical Coder (2022 – 2023)
-• Clarus RCM - Medical Coder (2020 – 2022)
-• Vee Technologies - Medical Coder (2019 – 2020)
-
-Education: B.Sc Zoology`;
-        
-        const blob = new Blob([resumeContent], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Azhagesan_PM_Resume.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        
-        const toastMsg = document.createElement('div');
-        toastMsg.innerText = '📄 Resume download started';
-        toastMsg.style.position = 'fixed';
-        toastMsg.style.bottom = '90px';
-        toastMsg.style.right = '30px';
-        toastMsg.style.backgroundColor = '#0f67b3';
-        toastMsg.style.color = 'white';
-        toastMsg.style.padding = '12px 24px';
-        toastMsg.style.borderRadius = '40px';
-        toastMsg.style.zIndex = '9999';
-        toastMsg.style.fontWeight = '500';
-        toastMsg.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-        document.body.appendChild(toastMsg);
-        setTimeout(() => toastMsg.remove(), 2500);
-      });
-    }
-
-    // ========== SCROLL REVEAL ANIMATION ==========
-    const revealElements = document.querySelectorAll('.skill-card, .timeline-content, .about-grid > *, .contact-grid, .card-block');
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) entry.target.classList.add('active');
       });
-    }, { threshold: 0.15 });
-    
-    revealElements.forEach(el => {
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.skill-card, .timeline-content, .card-block, .contact-grid').forEach(el => {
       el.classList.add('reveal');
       observer.observe(el);
     });
-    
-    // ========== SKILL BAR ANIMATION ==========
-    const skillSection = document.querySelector('.skills');
-    if (skillSection) {
-      const skillBars = document.querySelectorAll('.skill-bar');
-      const animateBars = () => {
-        skillBars.forEach(bar => {
+
+    // Animate skill bars
+    const skillObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        document.querySelectorAll('.skill-bar').forEach(bar => {
           const width = bar.style.width;
           if (width && !bar.dataset.animated) {
             bar.style.width = width;
             bar.dataset.animated = 'true';
           }
         });
-      };
-      const skillObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          animateBars();
-          skillObserver.disconnect();
-        }
-      }, { threshold: 0.3 });
-      skillObserver.observe(skillSection);
-    }
-    
-    // ========== PROGRESS FILL INIT ==========
-    const progressFill = document.querySelector('.progress-fill');
-    const readinessSpan = document.getElementById('readinessValue');
-    if (progressFill && readinessSpan) {
-      const targetWidth = readinessSpan.innerText + '%';
-      progressFill.style.width = targetWidth;
-    }
-    
-    // ========== HERO ICON PARALLAX ==========
-    const heroIcon = document.querySelector('.hero-icon');
-    if (heroIcon) {
-      document.addEventListener('mousemove', (e) => {
-        if (window.innerWidth > 768) {
-          const x = (e.clientX / window.innerWidth) * 10;
-          const y = (e.clientY / window.innerHeight) * 10;
-          heroIcon.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        }
-      });
-    }
-    
-    // ========== UPDATE FOOTER YEAR ==========
-    const footerYear = document.querySelector('.footer p');
-    if (footerYear && !footerYear.innerText.includes('2026')) {
-      footerYear.innerText = `© ${new Date().getFullYear()} Azhagesan P.M | Senior Medical Coder | HCC & QA Specialist`;
-    }
+        skillObserver.disconnect();
+      }
+    });
+    skillObserver.observe(document.querySelector('.skills'));
   </script>
 </body>
 </html>
